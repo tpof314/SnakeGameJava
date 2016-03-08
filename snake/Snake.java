@@ -72,6 +72,13 @@ public class Snake {
 	}
 	
 	/**
+	 * 蛇的身体变长一格.
+	 */
+	public void extendLength() {
+		
+	}
+	
+	/**
 	 * 判断一个位置(x, y)是不是落在网格范围里面.
 	 * @param x x坐标.
 	 * @param y y坐标.
