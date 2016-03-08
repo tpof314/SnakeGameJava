@@ -22,14 +22,14 @@ public class Snake {
 	 * 身体为水平方向, 长度为3格, 往右移动.
 	 */
 	public Snake(int gridSize) {
-		
+		// 在这里写代码.
 	}
 	
 	/**
 	 * 蛇往前走一步.
 	 */
 	public void moveSnake() {
-		
+		// 在这里写代码.
 	}
 	
 	/**
@@ -39,6 +39,7 @@ public class Snake {
 	 * @return 如果(x,y)是蛇身上的点, 返回true. 否则返回false.
 	 */
 	public boolean isCellOnSnake(int x, int y) {
+		// 在这里写代码.
 		return false;
 	}
 
@@ -47,6 +48,7 @@ public class Snake {
 	 * @return 如果蛇咬到了自己, 返回true. 否则返回false.
 	 */
 	public boolean biteItself() {
+		// 在这里写代码.
 		return false;
 	}
 	
@@ -55,6 +57,7 @@ public class Snake {
 	 * @return 如果蛇撞墙了, 返回true. 否则返回false.
 	 */
 	public boolean hitBoundary() {
+		// 在这里写代码.
 		return false;
 	}
 	
@@ -65,7 +68,7 @@ public class Snake {
 	 * @param direction 需要改变的方向.
 	 */
 	public void changeDirection(int direction) {
-		
+		// 在这里写代码.
 	}
 	
 	/**
@@ -75,6 +78,7 @@ public class Snake {
 	 * @return 如果(x, y)在网格范围内, 返回true. 否则返回false.
 	 */
 	public boolean isValidPosition(int x, int y) {
+		// 在这里写代码.
 		return false;
 	}
 }

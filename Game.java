@@ -1,10 +1,14 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 import snake.Grid;
 import snake.Snake;
@@ -22,10 +26,12 @@ public class Game {
 	private JFrame window;		/* 窗口 */
 	private int    width;		/* 窗口宽度 */
 	private int    height;		/* 窗口高度 */
+	private Timer  timer;
 	
-	private final static int CELL_SIZE   = 6;
-	private final static int OFFSET      = 5;
-	private final static int GRID_WIDTH  = 50;
+	private final static int CELL_SIZE   = 8;	/* 格子大小 */
+	private final static int OFFSET      = 5;	/* 边框大小 */
+	private final static int GRID_WIDTH  = 50;	/* 网格宽度 */
+	private final static int TIME_SLOP   = 800;	/* 时间间隔 */
 	
 	public Game() {
 		this.grid = new Grid(GRID_WIDTH);
@@ -38,6 +44,9 @@ public class Game {
 		this.width  = GRID_WIDTH * CELL_SIZE + 2 * OFFSET;
 		this.height = GRID_WIDTH * CELL_SIZE + 2 * OFFSET;
 		this.window.setBounds(50, 50, width, height + 4*OFFSET);
+		
+		this.timer = new Timer(TIME_SLOP, new TimerListener());
+		this.timer.start();
 	}
 	
 	private void drawSquare(int r, int c, Graphics graphics, Color color) {
@@ -89,12 +98,23 @@ public class Game {
 			else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 				snake.changeDirection(Snake.DIRECTION_RIGHT);
 			}
-			
-			window.repaint();
 		}
 	}
 
+	private class TimerListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			grid.refreshGrid();
+			window.repaint();
+			if (grid.isGameOver()) {
+				JOptionPane.showMessageDialog(window, "游戏结束");
+				timer.stop();
+			}
+		}
+		
+	}
+	
 	public static void main(String args[]) {
-		Game game = new Game();
+		new Game();
 	}
 }

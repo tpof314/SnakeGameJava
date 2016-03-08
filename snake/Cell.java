@@ -11,6 +11,7 @@ package snake;
  * @author Wesley
  * 
  */
+
 public class Cell {
 	private int x;
 	private int y;
@@ -25,12 +26,12 @@ public class Cell {
 		return x;
 	}
 	
-	public void setX(int x) {
-		this.x = x;
-	}
-	
 	public int getY() {
 		return y;
+	}
+	
+	public void setX(int x) {
+		this.x = x;
 	}
 	
 	public void setY(int y) {
