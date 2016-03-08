@@ -75,7 +75,7 @@ public class Snake {
 	 * 蛇的身体变长一格.
 	 */
 	public void extendLength() {
-		
+		// 在这里写代码.
 	}
 	
 	/**
